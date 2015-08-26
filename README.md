@@ -16,4 +16,5 @@ Thanks for taking the time to do this assessment project! In the `data.json` fil
 
 ## Deliverables
 
-Please send a zip/tarball or github link of all your code to the assessor. Describe how you would implement an realtime events endpoint that a developer could get data updates from.
+- Send a zip/tarball or github link of all your code to the assessor
+- In your email, describe how you would implement an realtime events endpoint that a developer could get data updates from.
