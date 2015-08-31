@@ -4,16 +4,13 @@ class Api::V1::DataController < Api::V1::BaseController
 
   def index
     items_per_page = 5
-    page = 1
-    page = params[:page]
-    file = params[:filter]
-    query = params[:query]
 
     render json: @data
   end
 
   def destroy
     if @item.destroy
+      write_to_json
       render json: @data
     else
       render json: {message: "something went wrong, wasn't able to delete item"}
@@ -21,7 +18,13 @@ class Api::V1::DataController < Api::V1::BaseController
   end
 
   def update
-
+    if @item
+      @item.update_attributes(item_params)
+      write_to_json
+      render json: @data
+    else
+      render json: {message: "item not found."}
+    end
   end
 
   def show
@@ -35,13 +38,12 @@ class Api::V1::DataController < Api::V1::BaseController
   def create
     if params["user"] and params["experience"]
       @item = Perk.create({
-        data_id: @data.count + 1,
-        user: params["user"],
+        user_id: params["user"],
         experience: params["experience"],
-        data: Date.today,
+        date: Date.today,
         status: "New"
       })
-
+      write_to_json
       render json: @data
     else
       render json: {message: "user and experience is required"}
@@ -49,15 +51,29 @@ class Api::V1::DataController < Api::V1::BaseController
   end
 
   private
+  #load all data from database
   def load_data
     @data = Perk.all
   end
 
+  #find item for delete, update, and show with before_filter
   def find_item
     @item = Perk.find(params["id"].to_i)
   end
 
-  def write_to_json
+  #strong parameters for security
+  def item_params
+    params.permit(:id, :user, :experience, :status)
+  end
 
+  def filter_params
+    params.permit(:page, :filter, :query)
+  end
+
+  #write data to json every operation
+  def write_to_json
+    File.open(File.join(Rails.root, 'public', 'data.json'), 'w') do |file|
+      file.write(@data.to_json)
+    end
   end
 end
