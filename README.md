@@ -60,5 +60,5 @@ Same functionality as the page, but response should be `json`.
 #### Application Data & The Submission Process
 Please utilize the `db/seeds.rb` file to populate your database. Seed one `Account` and a lot of randomized `Rewards` that belong to that account.
 
-To submit your application please make a pull request to the https://github.com/blueboard/backend-assessment repository. In your PR, please provide Account details so that we can test your application. If you've chosen to implement additional features not listed above, please explain them briefly.
+To submit your application please make a pull request to the https://github.com/blueboard/backend-engineer-application repository. In your PR, please provide Account details so that we can test your application. If you've chosen to implement additional features not listed above, please explain them briefly.
 
