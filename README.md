@@ -1,6 +1,6 @@
 ### Blueboard Backend Engineer Application
 
--
+---
 
 #### Description
 Design and write a Rails application with the following features:
@@ -17,7 +17,7 @@ Design and write a Rails application with the following features:
     - A rewards endpoint
     - An account settings endpoint
 
--
+---
 
 #### Models
 Please use the following base models for your application, feel free to add additional fields although they are not required in any way.
@@ -38,7 +38,7 @@ Please use the following base models for your application, feel free to add addi
 - `password_digest:string`
 - `name:string`
 
--
+---
 
 #### Implementation
 How you decide to split API and views is up to you. You can choose to write separate controllers for each, or you can write one controller that can respond to `json` and `html`. You don't need to spend much time styling any pages, but be sure to display your data nicely in a table.
@@ -55,7 +55,7 @@ Same functionality as the page, but response should be `json`.
 ###### Settings endpoint
 Same functionality as the page, but response should be `json`.
 
--
+---
 
 #### Application Data & The Submission Process
 Please utilize the `db/seeds.rb` file to populate your database. Seed one `Account` and a lot of randomized `Rewards` that belong to that account.
