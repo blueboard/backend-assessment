@@ -23,7 +23,7 @@ Design and write a Rails application with the following features:
 Please use the following base models for your application, feel free to add additional fields although they are not required in any way.
 
 ###### Reward
-- `status:integer` with possible values:
+- `status` column with possible values:
     - `waiting_to_be_approved`
     - `approved`
     - `denied`
