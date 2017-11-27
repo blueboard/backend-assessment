@@ -5,7 +5,7 @@
 #### Description
 Design and write a Rails application with the following features:
 
-- Email and password authorization
+- Email and password authentication
 - Three views
     - Sign in page
         - Ability to sign out
@@ -23,7 +23,6 @@ Design and write a Rails application with the following features:
 Please use the following base models for your application, feel free to add additional fields although they are not required in any way.
 
 ###### Reward
-- `belongs_to :account`
 - `status:integer` with possible values:
     - `waiting_to_be_approved`
     - `approved`
@@ -33,9 +32,9 @@ Please use the following base models for your application, feel free to add addi
     - `completed`
 
 ###### Account
-- `has_many :rewards`
+- has many `Reward`s
 - `email:string`
-- `password_digest:string`
+- password
 - `name:string`
 
 ---
