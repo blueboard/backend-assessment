@@ -1,3 +1,39 @@
+### Set up project 
+1) run `bundle install`
+2) run `rake db:create`
+3) run `rake db:migrate`
+4) run `rake db:seed`
+5) run `rails c`
+
+### Test account credentials
+Email: test@mail.com
+
+Password: 123456
+
+### API
+
+#### POST /api/v1/session - sign in
+- Required params: email, password
+- Success response contains `Authorization` header. `Authorization` header should be passed with all requests which require the authorization
+
+**All endpoint below require an authorization**
+
+#### DELETE /api/v1/session - sign out
+- Remove current account authorization data from the server(only for current device/web session)
+
+#### GET /api/v1/setting - Account settings
+- Returns current account info
+
+#### PUT|PATH /api/v1/setting - Account settings
+- Params: name, password
+- Updates passed params for current account
+
+#### GET /api/v1/rewards - Rewards
+- Params: page, status
+- Returns rewards which belong to the current account with pagination. If `status` passed it filters rewards by the status
+ 
+ 
+
 ### Blueboard Backend Engineer Application
 
 ---
