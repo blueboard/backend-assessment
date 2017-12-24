@@ -1,0 +1,23 @@
+<%= form_tag '/rewards', method: :get do %>
+  Filter by status
+  <%= select_tag :status,
+                 options_for_select(Reward.statuses.to_a, params[:status]),
+                 include_blank: true,
+                 onchange: 'this.form.submit()' %>
+<% end %>
+
+<table>
+  <tr>
+    <th>#</th>
+    <th>Status</th>
+  </tr>
+
+  <% @rewards.each do |reward| %>
+    <tr>
+      <td><%= reward.id %></td>
+      <td><%= reward.status %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= paginate @rewards %>
